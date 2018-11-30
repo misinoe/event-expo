@@ -69,6 +69,20 @@ MouseEventExposure.create = function(container) {
                 .append($("<div/>").addClass("event mousedown").html("down"))
                 .append($("<div/>").addClass("event mouseup").html("up"))
                 .append($("<div/>").addClass("event click").html("click"))
+                .append($("<div/>").addClass("event touchstart").html("touchstart"))
+                .append($("<div/>").addClass("event touchmove").html("touchmove"))
+                .append($("<div/>").addClass("event touchend").html("touchend"))
+                .append($("<div/>").addClass("event touchcancel").html("touchcancel"))
+                .append($("<div/>").addClass("event pointerover").html("pointerover"))
+                .append($("<div/>").addClass("event pointerenter").html("pointerenter"))
+                .append($("<div/>").addClass("event pointerdown").html("pointerdown"))
+                .append($("<div/>").addClass("event pointermove").html("pointermove"))
+                .append($("<div/>").addClass("event pointerup").html("pointerup"))
+                .append($("<div/>").addClass("event pointercancel").html("pointercancel"))
+                .append($("<div/>").addClass("event pointerout").html("pointerout"))
+                .append($("<div/>").addClass("event pointerleave").html("pointerleave"))
+                .append($("<div/>").addClass("event gotpointercapture").html("gotpointercapture"))
+                .append($("<div/>").addClass("event lostpointercapture").html("lostpointercapture"))
             ));
 
         let logger = event => {
@@ -105,12 +119,26 @@ MouseEventExposure.create = function(container) {
         je.get(0).addEventListener("mousedown", logger);
         je.get(0).addEventListener("mouseup", logger);
         je.get(0).addEventListener("click", logger);
+        je.get(0).addEventListener("touchstart", logger);
+        je.get(0).addEventListener("touchmove", logger);
+        je.get(0).addEventListener("touchend", logger);
+        je.get(0).addEventListener("touchcancel", logger);
+        je.get(0).addEventListener("pointerdown", logger);
+        je.get(0).addEventListener("pointermove", logger);
+        je.get(0).addEventListener("pointerup", logger);
+        je.get(0).addEventListener("pointercancel", logger);
+        je.get(0).addEventListener("pointerout", logger);
+        je.get(0).addEventListener("pointerleave", logger);
+        je.get(0).addEventListener("gotpointercapture", logger);
+        je.get(0).addEventListener("lostpointercapture", logger);
+
     });
     $(".listener")
         .css("margin", "20px").css("padding", "10px")
         .css("width", "calc(100% - 60px)").css("height", "calc(100% - 100px)")
     $(".listener .indicator.panel > div").css("display", "inline-block");
-    $(".listener .indicator>.event").css("width", "50px")
+    $(".listener .indicator>.event").css("min-width", "50px")
+        .css("padding", "0 4px")
         .css("font-size", "8pt")
         .css("background-color", "black").css("color", "white")
         .css("text-align", "center").css("margin", "0 3px");
